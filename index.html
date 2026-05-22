@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="Live GSoC 2026 Org Finder & Good First Issue Tracker" />
   <meta name="twitter:description" content="Find your best-fit GSoC 2026 org and track beginner-friendly GitHub issues." />
   <meta name="twitter:image" content="https://findmygsoc.vercel.app/src/assets/og-image.jpeg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1131,11 +1132,11 @@
       </div>
       <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">© 2026 S3DFX-CYBER · Built for the Open Source Community</p>
     </div>
-    <nav class="flex flex-wrap gap-6" aria-label="Footer navigation">
-      <a class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="https://summerofcode.withgoogle.com/programs/2026/organizations" target="_blank" rel="noopener noreferrer">GSoC 2026</a>
-      <a class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="https://github.com/S3DFX-CYBER/GSoC-Org-Finder-" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="privacy.html">Privacy</a>
-      <a class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="#contact">Contact</a>
+    <nav class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-3" aria-label="Footer navigation">
+      <a class="flex items-center gap-2 text-xs font-bold tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="https://summerofcode.withgoogle.com/programs/2026/organizations" target="_blank" rel="noopener noreferrer">GSoC 2026</a>
+      <a class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="https://github.com/S3DFX-CYBER/GSoC-Org-Finder-" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+      <a class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="privacy.html"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Privacy</a>
+      <a class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-all" href="#contact"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact</a>
     </nav>
   </div>
 </footer>
@@ -1884,7 +1885,7 @@
     renderMentorFinder();
 
     try {
-      const res = await fetch(`/data/mentors.json?v=${Date.now()}`);
+      const res = await fetch(`./data/mentors.json?v=${Date.now()}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (!data || typeof data !== 'object' || Array.isArray(data)) {
@@ -2887,7 +2888,7 @@ if(org.ideas){
   // Dynamic GFIs
   async function renderGoodFirstIssues() {
     try {
-      const res = await fetch('/data/issues.json?v=' + Date.now());
+      const res = await fetch('./data/issues.json?v=' + Date.now());
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       const container = document.querySelector('#issues .grid');
